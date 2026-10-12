@@ -591,14 +591,18 @@ body {
 .dato-whatsapp {
     padding: 12px 18px;
     border-radius: 999px;
-    background: #25d366;
+    background: #075e54;
     color: white;
     text-decoration: none;
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
+.dato-whatsapp:visited {
+    color: white;
+}
+
 .dato-whatsapp:hover {
-    background: #1da851;
+    background: #064e46;
     transform: translateY(-2px);
 }
 
