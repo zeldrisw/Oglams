@@ -451,69 +451,390 @@ body {
         0 5px 12px rgba(0, 0, 0, 0.35);
 }
 
-
 /* =========================================================
-   METODOLOGÍA
+   CURSOS DE APRENDIZAJE
 ========================================================= */
 
-.metodologia {
-
-    margin: 0 25px 50px;
-    padding: 30px 20px;
-    background: #e9faff;
-    border-radius: 20px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
+.cursos-aprendizaje {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    margin: 0 8px 45px;
+    padding: 55px 7% 28px;
+    border-radius: 48px;
+    background: #e7f7fd;
+    color: var(--morado);
+    scroll-margin-top: 20px;
 }
 
+.cursos-oso {
+    position: absolute;
+    z-index: -1;
+    top: -10px;
+    right: -10px;
+    width: 34%;
+    max-width: 360px;
+    opacity: 0.95;
+    pointer-events: none;
+}
 
-.metodo-card {
+.cursos-encabezado,
+.programas,
+.cursos-ayuda {
+    position: relative;
+    z-index: 1;
+}
 
-    min-height: 150px;
-    border-radius: 18px;
+.cursos-encabezado {
+    margin-bottom: 26px;
+}
+
+.cursos-encabezado h2 {
+    font-family: Impact, "Arial Narrow", sans-serif;
+    font-size: clamp(32px, 5vw, 58px);
+    line-height: 1;
+    letter-spacing: 0.3px;
+}
+
+.cursos-encabezado h2 span {
+    color: var(--azul);
+}
+
+.cursos-encabezado p {
+    margin: 10px 0 0 4px;
+    font-size: clamp(17px, 2vw, 23px);
+    font-weight: 700;
+}
+
+.programas {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px 28px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.programa-card {
     display: flex;
+    align-items: stretch;
+    min-height: 205px;
+    overflow: hidden;
+    border-radius: 14px;
+    background: #e8dcfb;
+}
+
+.programa-kids-advanced {
+    background: #d5f1fa;
+}
+
+.programa-teens {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc((100% - 28px) / 2);
+    background: #f9d8ef;
+}
+
+.programa-card > img {
+    align-self: flex-end;
+    width: 43%;
+    min-width: 0;
+    height: 190px;
+    object-fit: contain;          /* Muestra la imagen completa sin recortarla */
+    object-position: bottom center; /* La alinea hacia abajo y al centro */
+    mix-blend-mode: normal;       /* Evita efectos de fusión extraños si la imagen tiene fondo propio */
+}
+
+.programa-info {
+    display: flex;
+    flex: 1;
     flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 16px 14px 16px 8px;
+}
+
+.programa-info h3 {
+    font-family: Impact, "Arial Narrow", sans-serif;
+    font-size: clamp(24px, 3vw, 34px);
+    line-height: 0.98;
+    color: var(--morado);
+}
+
+.programa-info p {
+    margin: 7px 0 12px;
+    font-size: 20px;
+}
+
+.programa-boton {
+    display: inline-flex;
     align-items: center;
     justify-content: center;
+    gap: 12px;
+    min-height: 38px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: var(--morado);
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: inherit;
+    border: 0;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.programa-boton:hover {
+    transform: translateY(-2px);
+    background: var(--morado-oscuro);
+}
+
+.programa-boton:focus-visible,
+.cursos-ayuda a:focus-visible {
+    outline: 3px solid var(--azul);
+    outline-offset: 3px;
+}
+
+.cursos-ayuda {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    max-width: 720px;
+    min-height: 64px;
+    margin: 16px auto 0;
+    padding: 10px 20px;
+    border-radius: 999px;
+    background: var(--morado);
+    color: white;
+}
+
+.cursos-ayuda > i {
+    font-size: 34px;
+}
+
+.cursos-ayuda > span {
+    font-size: clamp(17px, 2.5vw, 24px);
+}
+
+.cursos-ayuda a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    padding: 9px 16px;
+    border-radius: 999px;
+    background: white;
+    color: var(--morado);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.programa-dialog {
+    width: min(960px, calc(100% - 32px));
+    max-width: none;
+    max-height: min(90vh, 850px);
+    margin: auto;
+    padding: 0;
+    overflow: auto;
+    border: 0;
+    border-radius: 30px;
+    background: #e7f7fd;
+    color: var(--morado);
+    box-shadow: 0 20px 60px rgba(20, 12, 75, 0.35);
+}
+
+.programa-dialog::backdrop {
+    background: rgba(22, 14, 61, 0.72);
+    backdrop-filter: blur(3px);
+}
+
+.programa-dialog-contenido {
+    position: relative;
+    padding: 36px 42px 32px;
+}
+
+.programa-dialog-cerrar {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    display: grid;
+    width: 42px;
+    height: 42px;
+    place-items: center;
+    border: 0;
+    border-radius: 50%;
+    background: var(--morado);
+    color: white;
+    font-size: 21px;
+    cursor: pointer;
+}
+
+.programa-dialog-cerrar:focus-visible,
+.detalle-contacto:focus-visible {
+    outline: 3px solid var(--azul);
+    outline-offset: 3px;
+}
+
+.detalle-encabezado-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 190px;
+    align-items: center;
+    gap: 20px;
+    padding-right: 50px;
+    margin-bottom: 24px;
+}
+
+.detalle-encabezado {
+    margin: 0;
+}
+
+.detalle-encabezado p {
+    display: inline-block;
+    margin-bottom: 8px;
+    padding: 5px 14px;
+    border-radius: 999px;
+    background: #f5c4e8;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.detalle-encabezado h2 {
+    font-family: Impact, "Arial Narrow", sans-serif;
+    font-size: clamp(32px, 5vw, 52px);
+    line-height: 1;
+}
+
+.detalle-oso-slot,
+.detalle-icono-slot {
+    display: grid;
+    place-items: center;
+    border: 2px dashed rgba(61, 28, 168, 0.4);
+    background: rgba(255, 255, 255, 0.55);
+    color: #6255a5;
     text-align: center;
-    padding: 15px;
+    font-size: 13px;
+    font-weight: 700;
 }
 
-
-/* COLORES */
-
-.metodo-card:nth-child(1) {
-
-    background: #62dcea;
+.detalle-oso-slot {
+    min-height: 120px;
+    padding: 12px;
+    border-radius: 20px;
 }
 
-.metodo-card:nth-child(2) {
-
-    background: #ffdc38;
+.detalle-tarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
 }
 
-.metodo-card:nth-child(3) {
-
-    background: #f4a4d6;
+.detalle-tarjeta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    min-height: 205px;
+    padding: 22px;
+    border-radius: 16px;
+    background: #e8dcfb;
 }
 
-
-/* ICONOS */
-
-.metodo-icono {
-
-    font-size: 55px;
-    margin-bottom: 10px;
+.detalle-tarjeta:nth-child(3n + 2) {
+    background: #d5f1fa;
 }
 
+.detalle-tarjeta:nth-child(3n) {
+    background: #f9d8ef;
+}
 
-.metodo-card h3 {
+.detalle-tarjeta h3 {
+    margin-bottom: 4px;
+    font-family: Impact, "Arial Narrow", sans-serif;
+    font-size: clamp(21px, 2.5vw, 28px);
+    line-height: 1;
+}
 
+.detalle-icono-slot {
+    width: 58px;
+    height: 58px;
+    margin-bottom: 12px;
+    border-radius: 16px;
+}
+
+.detalle-edad-nivel {
+    width: 100%;
+    margin: 0 0 10px;
+    padding: 5px 8px;
+    border-radius: 999px;
+    background: rgba(239, 85, 186, 0.2);
+    text-align: center;
+}
+
+.detalle-dato {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 9px;
+    font-size: 16px;
+}
+
+.detalle-dato i {
+    width: 24px;
+    font-size: 19px;
+    text-align: center;
+}
+
+.detalle-nota {
+    margin-top: 16px;
+    padding: 14px 18px;
+    border-radius: 14px;
+    background: #ded5fa;
     font-size: 17px;
-    color: var(--texto);
 }
 
+.detalle-nota-nivel {
+    margin-top: 12px;
+    padding: 9px;
+    border-radius: 10px;
+    background: #fff0a8;
+    font-size: 13px;
+}
+
+.detalle-contacto {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 22px auto 0;
+    padding: 12px 22px;
+    border: 8px solid var(--morado);
+    border-radius: 999px;
+    background: white;
+    color: var(--morado);
+    font-size: 17px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   BANNER DE CURSOS
+========================================================= */
+
+.banner-cursos {
+    padding: 0 20px 45px;
+    background: var(--morado);
+}
+
+.banner-cursos img {
+    display: block;
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 20px;
+}
 
 /* =========================================================
    CONTACTO
@@ -591,7 +912,7 @@ body {
 .dato-whatsapp {
     padding: 12px 18px;
     border-radius: 999px;
-    background: #075e54;
+    background: #107809;
     color: white;
     text-decoration: none;
     transition: background-color 0.2s ease, transform 0.2s ease;
@@ -729,18 +1050,6 @@ body {
     }
 
 
-    .metodologia {
-
-        grid-template-columns: 1fr 1fr;
-    }
-
-
-    .metodo-card:last-child {
-
-        grid-column: span 2;
-    }
-
-
     .contacto {
 
         grid-template-columns: 1fr;
@@ -775,6 +1084,103 @@ body {
 ========================================================= */
 
 @media (max-width: 600px) {
+
+    .cursos-aprendizaje {
+        margin: 0 5px 35px;
+        padding: 38px 18px 20px;
+        border-radius: 30px;
+    }
+
+    .cursos-oso {
+        top: 0;
+        right: -35px;
+        width: 48%;
+        opacity: 0.45;
+    }
+
+    .cursos-encabezado {
+        max-width: 75%;
+    }
+
+    .programas {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .programa-card {
+        min-height: 175px;
+    }
+
+    .programa-teens {
+        grid-column: auto;
+        justify-self: stretch;
+        width: auto;
+    }
+
+    .programa-card > img {
+        height: 160px;
+    }
+
+    .programa-info h3 {
+        font-size: 27px;
+    }
+
+    .programa-info p {
+        font-size: 18px;
+    }
+
+    .cursos-ayuda {
+        flex-wrap: wrap;
+        gap: 10px 12px;
+        margin-top: 14px;
+        padding: 14px;
+        border-radius: 22px;
+        text-align: center;
+    }
+
+    .cursos-ayuda > i {
+        font-size: 28px;
+    }
+
+    .cursos-ayuda > span {
+        font-size: 18px;
+    }
+
+    .cursos-ayuda a {
+        padding: 8px 14px;
+    }
+
+    .programa-dialog-contenido {
+        padding: 30px 18px 24px;
+    }
+
+    .detalle-encabezado-layout {
+        grid-template-columns: minmax(0, 1fr) 100px;
+        gap: 10px;
+        padding-right: 44px;
+        margin-bottom: 18px;
+    }
+
+    .detalle-oso-slot {
+        min-height: 90px;
+        padding: 8px;
+        border-radius: 14px;
+        font-size: 11px;
+    }
+
+    .detalle-tarjetas {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .detalle-tarjeta {
+        min-height: 150px;
+        padding: 18px;
+    }
+
+    .detalle-tarjeta h3 {
+        font-size: 25px;
+    }
 
     body {
 
@@ -970,35 +1376,6 @@ body {
     }
 
 
-    /* METODOLOGÍA */
-
-    .metodologia {
-
-        margin: 0 10px 35px;
-        padding: 15px;
-        grid-template-columns: 1fr;
-        gap: 10px;
-    }
-
-
-    .metodo-card {
-
-        min-height: 125px;
-    }
-
-
-    .metodo-card:last-child {
-
-        grid-column: auto;
-    }
-
-
-    .metodo-icono {
-
-        font-size: 45px;
-    }
-
-
     /* CONTACTO */
 
     .contacto {
@@ -1176,4 +1553,307 @@ body {
   .footer-section {
     flex: 1; /* Distribuye el espacio equitativamente entre las 3 columnas */
   }
+}
+
+/* Estilos generales del modal para que coincida con el diseño */
+.programa-dialog {
+    border: none;
+    border-radius: 24px;
+    padding: 30px;
+    max-width: 900px;
+    width: 90%;
+    background-color: #f0f7ff;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+.programa-dialog-contenido {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+}
+
+/* Botón de cerrar */
+.programa-dialog-cerrar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #2b125a;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    z-index: 10;
+}
+
+/* Encabezado con diseño flexible */
+.detalle-encabezado-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 40px;
+}
+
+.badge-edad {
+    background-color: #ffc4e1;
+    color: #9c155c;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+.detalle-encabezado h2 {
+    color: #1e1b4b;
+    font-size: 2.2rem;
+    font-weight: 900;
+    margin: 0;
+    letter-spacing: -1px;
+}
+
+.detalle-oso-slot {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    border: none;
+    background: transparent;
+    padding: 0;
+}
+
+.detalle-oso-slot img.detalle-oso-img {
+    max-height: 180px; /* Aumentado para que destaque más */
+    width: auto;
+    object-fit: contain;
+    margin-bottom: -15px; /* Efecto visual de superposición */
+}
+
+/* Tarjetas de niveles */
+.detalle-tarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    align-items: stretch;
+}
+
+.detalle-tarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 16px;
+    align-items: stretch;
+}
+.detalle-tarjeta {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-radius: 20px;
+    padding: 22px 12px 24px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    background: white; /* Fondo base sólido para contraste */
+}
+.detalle-tarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 16px;
+    align-items: stretch;
+}
+/* SOLO para el modal de TEENS: exactamente 2 columnas (2 arriba y 2 abajo) */
+.programa-dialog.modal-teens .detalle-tarjetas {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+/* Ajuste para celulares en Teens */
+@media (max-width: 600px) {
+    .programa-dialog.modal-teens .detalle-tarjetas {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Colores de fondo personalizados para las tarjetas según el diseño */
+.detalle-tarjeta:nth-child(4n+1) { background-color: #ece6ff; }
+.detalle-tarjeta:nth-child(4n+2) { background-color: #e0f4ff; }
+.detalle-tarjeta:nth-child(4n+3) { background-color: #ece6ff; }
+.detalle-tarjeta:nth-child(4n)   { background-color: #e0f4ff; }
+
+.detalle-icono-slot {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: transparent;
+    margin-bottom: 10px;
+}
+.detalle-icono-slot img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.detalle-tarjeta h3 {
+    font-family: Impact, "Arial Narrow", sans-serif;
+    font-size: clamp(18px, 2.2vw, 24px); /* Se ajusta automáticamente para que no se desborde */
+    line-height: 1.05;
+    color: var(--morado);
+    margin-bottom: 8px;
+    letter-spacing: 0.2px;
+}
+
+.detalle-nota-nivel {
+    margin-top: 12px;
+    padding: 8px 10px;
+    border-radius: 10px;
+    background: #fff3a1;
+    color: #2b125a;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-align: left;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.detalle-nota-nivel i {
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.detalle-edad-nivel {
+    width: 100%;
+    margin: 0 0 12px;
+    padding: 5px 10px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    font-size: 0.85rem;
+    font-weight: 700;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.detalle-dato {
+    font-size: 0.9rem;
+    color: #1e1b4b;
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 500;
+}
+
+.detalle-dato strong {
+    color: var(--morado);
+    font-weight: 700;
+}
+
+.detalle-dato i {
+    color: var(--morado);
+    font-size: 1rem;
+}
+
+/* Barra inferior de contacto idéntica a la imagen */
+.dialogo-footer-contacto {
+    background-color: #381ab2;
+    border-radius: 40px;
+    padding: 14px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    margin-top: 10px;
+}
+
+.footer-contacto-texto {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.footer-contacto-texto i {
+    font-size: 1.4rem;
+}
+
+.programa-boton-contacto {
+    background-color: white;
+    color: #381ab2;
+    padding: 10px 22px;
+    border-radius: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s;
+}
+
+.programa-boton-contacto:hover {
+    background-color: #f0f0f0;
+}
+
+/* Contenedor general para la dirección y el mapa */
+.direccion-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    width: 100%;
+}
+
+.info-ubicacion {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-align: left;
+}
+
+/* Estilo estético para la miniatura del mapa */
+.mapa-miniatura {
+    width: 100%;
+    max-width: 320px;   /* Tamaño compacto y elegante */
+    height: 150px;      /* Altura controlada para que no sea muy gigante */
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.mapa-miniatura:hover {
+    transform: scale(1.02);
+}
+
+.mapa-miniatura iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+}
+
+/* Ajuste para celulares en la sección de contacto */
+@media (max-width: 600px) {
+    .direccion-container {
+        align-items: center;
+    }
+    
+    .info-ubicacion {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .mapa-miniatura {
+        max-width: 100%;
+    }
 }

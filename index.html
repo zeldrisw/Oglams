@@ -46,13 +46,6 @@
                     </span>
                 </div>
 
-                <!--
-                    AQUÍ PUEDES COLOCAR EL OSO
-
-                    Cambia "oso.png" por el nombre real
-                    de tu imagen.
-                -->
-
                 <div class="hero-oso">
 
                     <img
@@ -235,14 +228,8 @@
              BANNER DEL ESPACIO
         ====================================================== -->
 
-        <section id="cursos" class="banner-espacio">
+        <section class="banner-espacio">
 
-            <!--
-                AQUÍ COLOCAS TU BANNER DEL ESPACIO
-
-                Ejemplo:
-                images/banner-espacio.png
-            -->
 
             <img
                 src="/images/banner-espacio.png"
@@ -251,55 +238,124 @@
 
         </section>
 
-
         <!-- =====================================================
-             METODOLOGÍA
+             CURSOS DE APRENDIZAJE
         ====================================================== -->
 
-        <section class="metodologia">
+        <section id="cursos" class="cursos-aprendizaje">
 
-            <div class="metodo-card">
+            <img
+                class="cursos-oso"
+                src="/images/oso portada-02.png"
+                alt=""
+                aria-hidden="true"
+            >
 
-                <div class="metodo-icono">
-                    <i class="fa-solid fa-brain"></i>
-                </div>
+            <div class="cursos-encabezado">
+                <h2>CURSOS DE <span>APRENDIZAJE</span></h2>
+                <p>Elige el programa para ti</p>
+            </div>
 
-                <h3>
-                    METODOLOGÍA<br>
-                    EFECTIVA
-                </h3>
+            <div class="programas">
+
+                <article class="programa-card programa-kids">
+                    <img src="/images/niña-01.png" alt="Niña aprendiendo y escribiendo">
+                    <div class="programa-info">
+                        <h3>KIDS<br>PROGRAM</h3>
+                        <p>+ 5 años</p>
+                        <button
+                            class="programa-boton"
+                            type="button"
+                            data-programa="kids"
+                        >
+                            Ver programa <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="programa-card programa-kids-advanced">
+                    <img src="/images/niño-02.png" alt="Niños aprendiendo en clase">
+                    <div class="programa-info">
+                        <h3>KIDS<br>ADVANCED</h3>
+                        <p>+ 10 años</p>
+                        <button
+                            class="programa-boton"
+                            type="button"
+                            data-programa="kids-advanced"
+                        >
+                            Ver programa <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="programa-card programa-teens">
+                    <img src="/images/niña-03.png" alt="Libros para aprender inglés">
+                    <div class="programa-info">
+                        <h3>TEENS</h3>
+                        <p>+ 12 años</p>
+                        <button
+                            class="programa-boton"
+                            type="button"
+                            data-programa="teens"
+                        >
+                            Ver programa <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </article>
 
             </div>
 
-
-            <div class="metodo-card">
-
-                <div class="metodo-icono">
-                    <i class="fa-solid fa-book-open"></i>
-                </div>
-
-                <h3>
-                    APOYO<br>
-                    CONTINUO
-                </h3>
-
-            </div>
-
-
-            <div class="metodo-card">
-
-                <div class="metodo-icono">
-                    <i class="fa-solid fa-bullseye"></i>
-                </div>
-
-                <h3>
-                    TRABAJO<br>
-                    PERSONALIZADO
-                </h3>
-
+            <div class="cursos-ayuda">
+                <i class="fa-regular fa-comment-dots" aria-hidden="true"></i>
+                <span>¿Necesitas ayuda para elegir?</span>
+                <a href="https://wa.me/593979236897?text=Hola%2C%20necesito%20ayuda%20para%20elegir%20un%20programa%20de%20ingl%C3%A9s." target="_blank" rel="noopener noreferrer">
+                    Contáctanos <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </a>
             </div>
 
         </section>
+
+
+        <section class="banner-cursos" aria-label="Cursos de nivelación, clases personalizadas y cursos vacacionales">
+            <img
+                src="/images/banner-cursos.jpeg"
+                alt="Cursos de nivelación, clases personalizadas y cursos vacacionales"
+            >
+        </section>
+
+
+        <dialog class="programa-dialog" aria-labelledby="detalle-titulo">
+    <div class="programa-dialog-contenido">
+        <button class="programa-dialog-cerrar" type="button" aria-label="Cerrar detalles del programa">
+            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+        
+        <!-- Encabezado con título, edad y la imagen del oso arriba a la derecha -->
+        <div class="detalle-encabezado-layout">
+            <header class="detalle-encabezado">
+                <span id="detalle-edad" class="badge-edad"></span>
+                <h2 id="detalle-titulo"></h2>
+            </header>
+            <div class="detalle-oso-slot"></div>
+        </div>
+
+        <!-- Tarjetas de los niveles -->
+        <div id="detalle-tarjetas" class="detalle-tarjetas"></div>
+
+        <p id="detalle-nota" class="detalle-nota" hidden></p>
+
+        <!-- Barra inferior de contacto idéntica al diseño -->
+        <div class="dialogo-footer-contacto">
+            <div class="footer-contacto-texto">
+                <i class="fa-regular fa-comment-dots" aria-hidden="true"></i>
+                <span>¿Quieres conocer más?</span>
+            </div>
+            <a id="detalle-contacto" class="programa-boton-contacto" target="_blank" rel="noopener noreferrer">
+                Contáctanos <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+        </div>
+    </div>
+</dialog>
 
 
         <!-- =====================================================
@@ -345,15 +401,22 @@
                 </a>
 
 
-                <div class="dato">
-
-                    <i class="fa-solid fa-location-dot"></i>
-
-                    <span>
-                        Av. Lizarzaburu y<br>
-                        Miguel de Santiago
-                    </span>
-
+                <div class="dato direccion-container">
+                    <div class="info-ubicacion">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>
+                            Av. Lizarzaburu y<br>
+                            Miguel de Santiago
+                        </span>
+                    </div>
+                
+                    <!-- Contenedor estético para el mapa -->
+                    <div class="mapa-miniatura">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3832.3812296676397!2d-78.6742916!3d-1.6474696!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d307e39a87fba9%3A0x3848c9eb55949bb2!2sAvenida%20Lizarzaburu%20%26%20Miguel%20de%20Santiago%2C%20Riobamba!5e1!3m2!1ses!2sec!4v1792861921477!5m2!1ses!2sec"
+                            allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin">
+                        </iframe>
+                    </div>
                 </div>
 
             </div>
@@ -383,6 +446,213 @@
     </div>
   </footer>
 
+    <script>
+    const programas = {
+        kids: {
+            titulo: "KIDS PROGRAM",
+            subtitulo: "PROGRAM",
+            edad: "+ 5 years",
+            imagen: "/images/Oso con los niños.png",
+            niveles: [
+                { 
+                    nombre: "SMART BEARS", 
+                    edad: "5 - 7 years old", 
+                    nivel: "Pre-A1", 
+                    duracion: "7 months",
+                    icono: "/images/icono-05.png" 
+                },
+                { 
+                    nombre: "SUPER MINDS", 
+                    edad: "8 - 10 years old", 
+                    nivel: "A1", 
+                    duracion: "7 months",
+                    icono: "/images/icono1-05.png" 
+                },
+                { 
+                    nombre: "JUNIOR COMMUNICATORS", 
+                    edad: "11 - 12 years old", 
+                    nivel: "A2", 
+                    duracion: "10 months",
+                    icono: "/images/icono2-05.png" 
+                }
+            ]
+        },
+        "kids-advanced": {
+            titulo: "KIDS ADVANCED",
+            edad: "+ 10 years",
+            imagen: "/images/Oso con los niños.png",
+            niveles: [
+                { 
+                    nombre: "JUNIOR EXPLORERS", 
+                    edad: "10 - 12 years old",
+                    nivel: "A1", 
+                    duracion: "7 months",
+                    icono: "/images/icono4-05.png" 
+                },
+                { 
+                    nombre: "JUNIOR LEADERS", 
+                    edad: "12+ years old",
+                    nivel: "A2", 
+                    duracion: "7 months",
+                    icono: "/images/icono5-05.png" 
+                }
+            ],
+            nota: "ⓘ Nota: Edades orientativas, no requisitos rigidos."
+        },
+        teens: {
+            titulo: "TEENS",
+            edad: "+ 12 years",
+            imagen: "/images/Oso con adolecentes.png",
+            niveles: [
+                { 
+                    nombre: "ELEMENTARY", 
+                    edad: "12 - 14 years old",
+                    nivel: "Level A1", 
+                    duracion: "5 months",
+                    icono: "/images/icono6-05.png" 
+                },
+                { 
+                    nombre: "PRE-INTERMEDIATE", 
+                    edad: "14 - 15 years old",
+                    nivel: "Level A2", 
+                    duracion: "5 months",
+                    icono: "/images/icono7-05.png" 
+                },
+                { 
+                    nombre: "INTERMEDIATE", 
+                    edad: "15 - 16 years old",
+                    nivel: "Level B1", 
+                    duracion: "7 months", 
+                    nota: "Una vez finalizado el nivel intermediate, nuestros alumnos toman un examen internacional.",
+                    icono: "/images/icono8-05.png" 
+                },
+                { 
+                    nombre: "ADVANCED", 
+                    edad: "16+ years old",
+                    nivel: "Level B2", 
+                    duracion: "7 months", 
+                    nota: "Una vez finalizado el nivel advanced, nuestros alumnos toman un examen internacional.",
+                    icono: "/images/icono9-05.png" 
+                }
+            ]
+        }
+    };
+
+    const dialogoPrograma = document.querySelector(".programa-dialog");
+    const tarjetasPrograma = document.querySelector("#detalle-tarjetas");
+    const tituloPrograma = document.querySelector("#detalle-titulo");
+    const edadPrograma = document.querySelector("#detalle-edad");
+    const notaPrograma = document.querySelector("#detalle-nota");
+    const contactoPrograma = document.querySelector("#detalle-contacto");
+    const osoSlot = document.querySelector(".detalle-oso-slot");
+
+    function crearDato(icono, etiqueta, valor) {
+        const dato = document.createElement("p");
+        dato.className = "detalle-dato";
+        const icon = document.createElement("i");
+        icon.className = icono;
+        icon.setAttribute("aria-hidden", "true");
+        const texto = document.createElement("span");
+        const nombre = document.createElement("strong");
+        nombre.textContent = `${etiqueta}: `;
+        texto.append(nombre, document.createTextNode(valor));
+        dato.append(icon, texto);
+        return dato;
+    }
+
+    document.querySelectorAll("[data-programa]").forEach((boton) => {
+        boton.addEventListener("click", () => {
+            const programaKey = boton.dataset.programa;
+            const programa = programas[programaKey];
+            if (!programa) return;
+
+            tituloPrograma.textContent = programa.titulo;
+            edadPrograma.textContent = programa.edad;
+
+            // Activar o desactivar diseño específico de 2x2 solo para Teens
+            if (programaKey === "teens") {
+                dialogoPrograma.classList.add("modal-teens");
+            } else {
+                dialogoPrograma.classList.remove("modal-teens");
+            }
+
+            // 1. INSERTAR OSO EN EL HEADER
+            osoSlot.replaceChildren();
+            if (programa.imagen) {
+                const imgOso = document.createElement("img");
+                imgOso.src = programa.imagen;
+                imgOso.alt = programa.titulo;
+                imgOso.className = "detalle-oso-img";
+                osoSlot.append(imgOso);
+            }
+
+            // 2. CONSTRUIR TARJETAS DE NIVELES CON SUS ICONOS
+            tarjetasPrograma.replaceChildren();
+            programa.niveles.forEach((nivel) => {
+                const tarjeta = document.createElement("article");
+                tarjeta.className = "detalle-tarjeta";
+
+                // Contenedor de la imagen/icono
+                const iconoSlot = document.createElement("div");
+                iconoSlot.className = "detalle-icono-slot";
+
+                if (nivel.icono) {
+                    const imgIcono = document.createElement("img");
+                    imgIcono.src = nivel.icono;
+                    imgIcono.alt = nivel.nombre;
+                    iconoSlot.append(imgIcono);
+                }
+
+                const titulo = document.createElement("h3");
+                titulo.textContent = nivel.nombre;
+                tarjeta.append(iconoSlot, titulo);
+
+                if (nivel.edad) {
+                    const edad = document.createElement("p");
+                    edad.className = "detalle-edad-nivel";
+                    edad.textContent = nivel.edad;
+                    tarjeta.append(edad);
+                }
+
+                tarjeta.append(
+                    crearDato("fa-solid fa-chart-simple", "Level", nivel.nivel),
+                    crearDato("fa-regular fa-clock", "Duration", nivel.duracion)
+                );
+
+                if (nivel.nota) {
+                    const nota = document.createElement("p");
+                    nota.className = "detalle-nota-nivel";
+                    
+                    const iconoNota = document.createElement("i");
+                    iconoNota.className = "fa-solid fa-clipboard-list";
+                    
+                    const textoNota = document.createElement("span");
+                    textoNota.textContent = nivel.nota;
+                    
+                    nota.append(iconoNota, textoNota);
+                    tarjeta.append(nota);
+                }
+
+                tarjetasPrograma.append(tarjeta);
+            });
+
+            notaPrograma.textContent = programa.nota || "";
+            notaPrograma.hidden = !programa.nota;
+            contactoPrograma.href = `https://wa.me/593979236897?text=${encodeURIComponent(`Hello, I want to know more about the program ${programa.titulo}.`)}`;
+            dialogoPrograma.showModal();
+        });
+    });
+
+    document.querySelector(".programa-dialog-cerrar").addEventListener("click", () => {
+        dialogoPrograma.close();
+    });
+
+    dialogoPrograma.addEventListener("click", (evento) => {
+        if (evento.target === dialogoPrograma) {
+            dialogoPrograma.close();
+        }
+    });
+</script>
 </body>
 
 </html>
