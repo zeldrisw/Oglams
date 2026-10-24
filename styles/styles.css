@@ -1857,3 +1857,140 @@ body {
         max-width: 100%;
     }
 }
+
+@media (max-width: 800px) {
+    /* Ajustar tamaño del modal en tablets */
+    .programa-dialog {
+        width: 95%;
+        padding: 20px;
+    }
+
+    /* El encabezado del modal se apila mejor en pantallas medianas */
+    .detalle-encabezado-layout {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        padding-right: 0;
+    }
+
+    .detalle-oso-slot {
+        align-self: center;
+    }
+
+    .detalle-oso-slot img.detalle-oso-img {
+        max-height: 140px;
+    }
+}
+
+@media (max-width: 600px) {
+    /* =========================================
+       1. TARJETAS DE CURSOS PRINCIPALES (KIDS / TEENS)
+       ========================================= */
+    .programa-card {
+        flex-direction: column;
+        text-align: center;
+        min-height: auto;
+        padding: 20px 15px;
+    }
+
+    .programa-card > img {
+        width: 70%;
+        height: 150px;
+        margin: 0 auto 10px auto;
+        object-fit: contain;
+    }
+
+    .programa-info {
+        align-items: center;
+        padding: 0;
+    }
+
+    /* =========================================
+       2. MODAL DE PROGRAMAS Y NIVELES
+       ========================================= */
+    .programa-dialog {
+        width: 100%;
+        height: 100%;
+        max-height: 100vh;
+        border-radius: 0;
+        padding: 20px 15px;
+    }
+
+    .programa-dialog-contenido {
+        padding: 10px;
+    }
+
+    .detalle-encabezado-layout {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding-right: 0;
+    }
+
+    .detalle-encabezado h2 {
+        font-size: 26px;
+    }
+
+    .detalle-oso-slot img.detalle-oso-img {
+        max-height: 120px;
+    }
+
+    /* Forzar que las tarjetas de niveles (incluso en Teens) se vuelvan de 1 sola columna en celulares */
+    .detalle-tarjetas,
+    .programa-dialog.modal-teens .detalle-tarjetas {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+    }
+
+    .detalle-tarjeta {
+        min-height: auto;
+        padding: 18px 14px;
+    }
+
+    /* Barra inferior de contacto dentro del modal */
+    .dialogo-footer-contacto {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+        border-radius: 20px;
+        padding: 15px;
+    }
+
+    .programa-boton-contacto {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* =========================================
+       3. SECCIÓN DE CONTACTO Y MAPA
+       ========================================= */
+    .contacto {
+        flex-direction: column;
+        padding: 35px 15px;
+        gap: 20px;
+    }
+
+    .contacto-logo,
+    .datos-contacto {
+        width: 100%;
+        align-items: center;
+    }
+
+    .direccion-container {
+        align-items: center;
+        text-align: center;
+    }
+
+    .info-ubicacion {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        gap: 8px;
+    }
+
+    .mapa-miniatura {
+        width: 100%;
+        max-width: 100%;
+        height: 180px; /* Un poco más alto en celulares para que sea interactivo y cómodo */
+    }
+}
